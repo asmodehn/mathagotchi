@@ -1,6 +1,41 @@
+import math
+
 import pyxel
 
-def draw():
-    pyxel.cls(0)
-    pyxel.rect(10, 10, 20, 20, 11)
 
+def draw():
+    pyxel.cls(1)
+
+    pyxel.text(6, 6, "sound(snd).set(note,tone,volume,effect,speed)", 7)
+    pyxel.rect(12, 14, 177, 35, 2)
+    pyxel.text(16, 17, "note  :[CDEFGAB] + [ #-] + [0-4] or [R]", 9)
+    pyxel.text(16, 25, "tone  :[T]riangle [S]quare [P]ulse [N]oise", 9)
+    pyxel.text(16, 33, "volume:[0-7]", 9)
+    pyxel.text(16, 41, "effect:[N]one [S]lide [V]ibrato [F]adeOut", 9)
+
+    pyxel.text(6, 53, "music(msc).set(ch0,ch1,ch2,ch3)", 7)
+    pyxel.text(6, 62, "play(ch,snd,loop=False)", 7)
+    pyxel.text(6, 71, "playm(msc,loop=False)", 7)
+    pyxel.text(6, 80, "stop([ch])", 7)
+
+    pyxel.rectb(6, 97, 188, 47, 14)
+    pyxel.rect(6, 91, 29, 7, 14)
+    pyxel.text(7, 92, "CONTROL", 1)
+
+    pyxel.text(12, 102, "1: Play all channels", 14)
+    pyxel.text(12, 110, "2: Play channel #0 (Melody)", 14)
+    pyxel.text(12, 118, "3: Play channel #1 (Bass)", 14)
+    pyxel.text(12, 126, "4: Play channel #2 (Drums)", 14)
+    pyxel.text(12, 134, "5: Stop playing", 14)
+
+    pyxel.text(137, 107, "play_pos(ch)", 15)
+
+    for i in range(3):
+        x = 140 + i * 16
+        y = 123 + math.sin(pyxel.frame_count * 0.1 + i * 2.1) * 5
+        col = 15 if pyxel.play_pos(i) >= 0 else 13
+
+        pyxel.pal(1, col)
+        pyxel.blt(x, y, 0, 0, 0, 8, 8, 0)
+
+    pyxel.pal()

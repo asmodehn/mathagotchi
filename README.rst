@@ -38,4 +38,15 @@ TODO
 
 - resources using metamath symbols
 - integrate mmverify in code somehow
-- determine if we inteerface directly with metamath C code or if we build some missing pieces on top of mmverify...
+- determine if we interface directly with metamath C code or if we build some missing pieces on top of mmverify...
+
+
+8BIT AUDIO
+----------
+
+TODO : Think about how to use sound to make this lively... using just the QWERTY keyboard !
+- https://github.com/thefossguy/qwerty_to_MIDI_API
+- https://vmpk.sourceforge.io/
+
+
+
